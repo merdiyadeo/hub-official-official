@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简明指南 · leyu 产品说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(145deg, #fce3c0 0%, #fad6b3 30%, #f5c9a8 60%, #efbf9e 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .container {
+      max-width: 920px;
+      width: 100%;
+      background: rgba(255, 248, 237, 0.75);
+      backdrop-filter: blur(6px);
+      border-radius: 48px 48px 32px 32px;
+      box-shadow: 0 20px 40px rgba(160, 100, 60, 0.18), 0 6px 12px rgba(0,0,0,0.05);
+      padding: 2.5rem 2.2rem;
+      transition: all 0.2s ease;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 580;
+      letter-spacing: -0.01em;
+      color: #6b3f1c;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    h1 small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #9b6f48;
+      margin-left: 0.75rem;
+      letter-spacing: 0;
+      background: #e9d0b6;
+      padding: 0.1rem 0.7rem;
+      border-radius: 40px;
+    }
+
+    .hero-tagline {
+      font-size: 1.1rem;
+      color: #7a5636;
+      border-left: 4px solid #dba67a;
+      padding-left: 1rem;
+      margin: 1.2rem 0 2rem 0;
+      background: rgba(255, 235, 215, 0.35);
+      border-radius: 0 20px 20px 0;
+      line-height: 1.6;
+    }
+
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #fffdf9;
+      border-radius: 28px;
+      padding: 1.6rem 1.8rem;
+      box-shadow: 0 4px 10px rgba(215, 155, 100, 0.08);
+      transition: box-shadow 0.2s, transform 0.2s;
+      border: 1px solid #f7e5d2;
+    }
+
+    .card:hover {
+      box-shadow: 0 10px 24px rgba(170, 120, 70, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      font-weight: 520;
+      color: #5a3c22;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card h2::before {
+      content: "·";
+      color: #dba072;
+      font-size: 2.2rem;
+      line-height: 0;
+      margin-right: 0.25rem;
+    }
+
+    .card p, .card li {
+      color: #3e2c1c;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    .highlight-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 2rem;
+      margin-top: 0.5rem;
+    }
+
+    .highlight-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .highlight-list li::before {
+      content: "✦";
+      color: #c78454;
+      font-size: 1.1rem;
+    }
+
+    .use-scenario {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 0.8rem 0 0.2rem;
+    }
+
+    .use-scenario span {
+      background: #fceedc;
+      padding: 0.25rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      border: 1px solid #eed6ba;
+      color: #5d3f28;
+    }
+
+    .faq-summary {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .faq-item {
+      padding: 0.5rem 0 0.5rem 0.8rem;
+      border-bottom: 1px dashed #eddac8;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 530;
+      color: #583e28;
+      margin-bottom: 0.1rem;
+    }
+
+    .faq-a {
+      color: #5f4a34;
+      font-size: 0.95rem;
+      padding-left: 0.8rem;
+    }
+
+    .cta-note {
+      background: #f2e0ce;
+      border-radius: 60px;
+      padding: 1rem 2rem;
+      margin: 2rem 0 0.8rem;
+      display: inline-block;
+      font-size: 1rem;
+      border: 1px solid #dbbc9c;
+      color: #3f2d1b;
+      text-align: center;
+      width: fit-content;
+      backdrop-filter: blur(2px);
+      line-height: 1.6;
+    }
+
+    .cta-note a {
+      color: #6a3f1f;
+      text-decoration: none;
+      font-weight: 540;
+      border-bottom: 2px solid #cfaa84;
+      padding-bottom: 0.05rem;
+      transition: border 0.15s, color 0.15s;
+    }
+
+    .cta-note a:hover {
+      border-bottom-color: #9e6d44;
+      color: #3b2817;
+    }
+
+    .footnote {
+      margin-top: 2.5rem;
+      font-size: 0.8rem;
+      color: #7e624a;
+      border-top: 1px solid #e4ceb8;
+      padding-top: 1.5rem;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 1.8rem 1.2rem;
+        border-radius: 32px;
+      }
+      h1 {
+        font-size: 1.9rem;
+        flex-wrap: wrap;
+      }
+      h1 small {
+        font-size: 0.75rem;
+        margin-left: 0.2rem;
+      }
+      .card {
+        padding: 1.2rem 1.2rem;
+      }
+      .cta-note {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.95rem;
+        width: 100%;
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  
+  <h1>
+    leyu
+    <small>产品摘要 · 简明指南</small>
+  </h1>
+  
+  <div class="hero-tagline">
+    一份温和的说明，帮助您更快了解 leyu 的特点、适用场景以及访问时的基本提醒。
+  </div>
+  
+  <div class="card-grid">
+    
+    <!-- 卡片：摘要 -->
+    <div class="card">
+      <h2>产品摘要</h2>
+      <p>leyu 是一个围绕日常实用场景构建的信息服务站点，不夸大、不炒作，力求以清晰的方式呈现用户所需。它不提供投资建议或承诺收益，更像是一个可信的起点——您可以在其中找到对特定领域的基础认知和指引。</p>
+      <p style="margin-top:0.6rem">整个平台设计偏向简洁直观，内容更新保持合理节奏，避免冗余信息干扰。适合希望直接获取要点而非漫无目的浏览的用户。</p>
+    </div>
+    
+    <!-- 卡片：亮点 -->
+    <div class="card">
+      <h2>亮点</h2>
+      <ul class="highlight-list">
+        <li>页面结构清爽，无弹窗干扰</li>
+        <li>内容分类明晰，减少重复查找</li>
+        <li>不追踪个人行为，仅记录基础访问数据</li>
+        <li>面向常识性需求，非专业投资或医疗建议</li>
+        <li>移动端阅读友好，响应式适配</li>
+      </ul>
+    </div>
+    
+    <!-- 卡片：使用建议 -->
+    <div class="card">
+      <h2>使用建议</h2>
+      <p>如果您是首次接触 <strong>leyu</strong>，建议先浏览常见分类或高频话题，快速建立整体印象。日常使用中可以将其作为参考工具之一，结合其他可靠来源交叉验证。</p>
+      <p style="margin-top:0.6rem">适合场景包括：</p>
+      <div class="use-scenario">
+        <span>信息检索</span>
+        <span>初步了解</span>
+        <span>常识确认</span>
+        <span>快速查阅</span>
+      </div>
+      <p style="margin-top:0.8rem">若遇到不理解的概念或流程，不妨多读两遍页面上的说明，通常能找到答案。请根据自身判断力使用，保持理性。</p>
+    </div>
+    
+    <!-- 卡片：可信但克制的访问说明 -->
+    <div class="card">
+      <h2>访问说明</h2>
+      <p>leyu 仅通过一个标准域名提供服务，不主动推送弹窗、无隐藏重定向。访问时请注意核对地址栏，确保处于正确页面。推荐使用主流浏览器并保持更新，获得更好的兼容性与安全体验。</p>
+      <p style="margin-top:0.5rem">本站不收集敏感个人信息；如遇要求输入密码、验证码或付费的情况，请暂停操作并确认是否为官方页面。</p>
+      <div class="faq-summary" style="margin-top: 1rem;">
+        <div class="faq-item">
+          <div class="faq-q">问：leyu 是否需要注册？</div>
+          <div class="faq-a">通常无需注册即可浏览主要内容，部分互动功能可能需基础账号。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">问：内容是否实时更新？</div>
+          <div class="faq-a">视具体板块而定，一般保持合理更新周期，非实时动态。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">问：遇到页面显示异常怎么办？</div>
+          <div class="faq-a">可尝试刷新或清除缓存，同时检查网络连接是否稳定。</div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <!-- 链接自然嵌入句子 -->
+  <div class="cta-note">
+    如需直接访问，您可以通过链接 <a href="https://official-official-leyu.com">leyu</a> 到达首页。该地址是当前唯一推荐的访问方式，请妥善保存。
+  </div>
+  
+  <div class="footnote">
+    本页面为产品介绍说明，内容仅供一般性参考，不构成任何形式的主张或保证。
+  </div>
+  
+</div>
+</body>
+</html>
